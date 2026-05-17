@@ -220,7 +220,7 @@ const AlignmentView: FC<AlignmentViewProps> = ({
   const viewBoxHeight = bbox.maxY - bbox.minY;
 
   const vbX = bbox.minX - padding;
-  const vbY = -(bbox.maxY + padding);
+  const vbY = -padding;
   const vbW = viewBoxWidth + 2 * padding;
   const vbH = viewBoxHeight + 2 * padding;
 
