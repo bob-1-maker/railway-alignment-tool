@@ -3,8 +3,8 @@
  * 直线路段
  * ============================================================ */
 
-import type { PointResult } from '../types';
-import { Segment } from './Segment';
+import type { PointResult } from "../types";
+import { Segment } from "./Segment";
 
 /** 构造直线路段所需的参数 */
 export interface LineSegmentOptions {
@@ -36,7 +36,7 @@ export class LineSegment extends Segment {
   private readonly y1: number;
 
   /** 笛卡尔角度（x 轴正方向为 0，逆时针为正） —— 仅用于插值 */
-  private readonly _cartesianAngle: number;
+  // private readonly _cartesianAngle: number;
 
   /** 方位角（正北顺时针，弧度） */
   private readonly _azimuth: number;
@@ -60,7 +60,7 @@ export class LineSegment extends Segment {
     const len = Math.sqrt(dx * dx + dy * dy);
 
     if (len === 0) {
-      throw new Error('直线路段的起点与终点不能重合');
+      throw new Error("直线路段的起点与终点不能重合");
     }
 
     // 单位切向量（笛卡尔系）
@@ -72,7 +72,7 @@ export class LineSegment extends Segment {
     this._normal = [-ty, tx];
 
     // 笛卡尔角（备用，插值时使用）
-    this._cartesianAngle = Math.atan2(dy, dx);
+    // this._cartesianAngle = Math.atan2(dy, dx);
 
     // 方位角：测量坐标系 x=东 y=北 → azimuth = atan2(dx, dy)
     this._azimuth = Math.atan2(dx, dy);
